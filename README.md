@@ -12,8 +12,9 @@ If you are struggling :
 then this utility is for you !
 
 
-- [Requirements for using this program](#ERequirements)
-- [Quick start guide](#EQuickStart)
+- **[Requirements for using this program](#ERequirements)**
+- **[Quick start guide](#EQuickStart)**
+- [Supported image file formats](#EFileFormats)
 
 >**You wish to support this initiative by making a donation,  
 >you can do so by clicking on the following link :** [![<Donate Ceeb182>](Medias/Logo-DonateCeeb182.png "Support via Paypal")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3H34W6LC74WAS)
@@ -24,7 +25,7 @@ then this utility is for you !
 - [FrSky and ETHOS trademark](#ETrademark)
 - [What is the license of this program ?](#ELicence)
 - [What are the specifications of the Ethos BMP format ?](#EEthosBmpFormat)
-- [What are the naming rules for the Ethos image file ?s](#ENamingRules)
+- [What are the naming rules for the Ethos image files ?](#ENamingRules)
 - [How does the program find the Ethos SD card ?](#EFindSD)
 - [How does this utility manage its preferences ?](#EPref)
 - [What tools was this program developed with ?](#EDevelop)
@@ -41,7 +42,7 @@ Note : ImageMagick is a free software program delivered as a ready-to-use binary
 
 <a name="EQuickStart"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) Quick start guide
-- Put your images in a directory
+- Put your images in a directory (regardless of their size and file format)
 - Put the utility ![ConvertLogo](Medias/Logo_for_converter_16x15.png) **Convert_to_ETHOS_Bmp.exe** in the same directory
 - Launch by double-clicking on ![ConvertLogo](Medias/Logo_for_converter_16x15.png)  **Convert_to_ETHOS_Bmp.exe** 
 - Click on the "**Convert**" button
@@ -52,6 +53,13 @@ The result is :
 - automatically transferred to your ETHOS SD Card (if the SD card has been detected and the transfer option is checked)
 
 ![ConvertLogo](Medias/ConvertToEthosBMP.gif) 
+
+<a name="EFileFormats"></a>
+### ![Puce>](Medias/Logo-PuceTriJN.png) Supported image file formats
+The image file formats currently supported are :
+![ConvertLogo](Medias/Ico-ImageFileFormats.png) 
+
+Other formats may be added if requested by users. 
 
 <a name="ETrademark"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) FrSky and ETHOS trademark
@@ -95,8 +103,8 @@ To comply with ETHOS naming rules (Ethos version 1.0.14) :
 The utility searches all removable drives.  
 It then looks for the following tree structure:  
 - `\audio\en` (as directory)
-- `\audio\fr` (directory)
-- `\bitmaps\user` (directory)
+- `\audio\fr` (as directory)
+- `\bitmaps\user` (as directory)
 
 The search stops on the first removable drive matching these criteria.
 

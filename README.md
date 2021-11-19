@@ -1,4 +1,5 @@
 #![UtilityLogo](Medias/Banner-ConvertToBMPv2.png "A simple utility to convert and use your images on the FrSky ETHOS OS in 2 clicks")
+
 # Convert_to_ETHOS_Bmp.exe
 
 ### A simple utility to convert and use your images on the FrSky ETHOS OS in 2 clicks
@@ -34,7 +35,7 @@ then this utility is for you !
 ### ![Puce>](Medias/Logo-PuceTriJN.png) Requirements for using this program
 - Have a PC running Windows 8 or Windows 10
 - Download and install the ![ConvertLogo](Medias/Ico-imagemagick16x16.png) **ImageMagick** program (on this webpage : **[https://imagemagick.com/](https://imagemagick.com/)**)
-- Download the ![ConvertLogo](Medias/Logo_for_converter_16x15.png) **Convert_to_ETHOS_Bmp.exe** utility (**[download link]()**)
+- Download the ![ConvertLogo](Medias/Logo_for_converter_16x15.png) **Convert_to_ETHOS_Bmp.exe** utility (**[download link](https://github.com/Ceeb182/ConvertToETHOSBMPformat/raw/master/Binary/Convert_to_ETHOS_bmp.exe)**)
 
 Note : ImageMagick is a free software program delivered as a ready-to-use binary distribution that allows you to perform image manipulation from the command line. Don't worry, the "**Convert_to_ETHOS_Bmp.exe**" utility will automatically drive the ImageMagick converter !
 
@@ -55,10 +56,10 @@ The result is :
 <a name="ETrademark"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) FrSky and ETHOS trademark
 - This is not a FrSky website.  
-FrSky is not responsible for the use of this utility
-- FrSky is a registered trademark whose official site is https://www.frsky-rc.com/
+FrSky is not responsible for the use of this utility.
+- FrSky is a registered trademark whose official site is https://www.frsky-rc.com/ .    
 FrSky is a company that designs and manufactures high-performance equipment in the field of radio control and its accessories.
-- Ethos is the name of the operating system powering the Horus and Tandem series radio controls (such as the X10 Express, X12 ISRM, X20...). Ethos is developed by the FrSky team.
+- Ethos is the name of the operating system powering the Horus and Tandem series radio controls (such as the X10 Express, X12 ISRM, X20...). Ethos is developed by the FrSky team.  
 For more information go to : https://ethos.frsky-rc.com/
 
 <a name="ELicence"></a>
@@ -71,18 +72,18 @@ This program is distributed in the hope that it will be useful but WITHOUT ANY W
 ### ![Puce>](Medias/Logo-PuceTriJN.png) What are the specifications of the Ethos BMP format ?
 From version 1.0.10 of Ethos, the recommended image format is the following BMP format:
 - 32bits BMP format 
-- 8 bits per colour
-- Alpha channel
-- size : 300x280px
+- 8 bits per colour  
+- Alpha channel (used for image transparency)  
+- Size : 300x280px  
 
 >#### ![ConvertLogo](Medias/Logo-Info.png) Note :
-> this format reduces the computational load on the on-board microcontroller of the radio control.
+> This format reduces the computational load on the on-board microcontroller of the radio control.
 
 <a name="ENamingRules"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) What are the naming rules for the Ethos image file ?
 To comply with ETHOS naming rules (Ethos version 1.0.14) :
-- Rule 1 : use only the following characters : A~Z, a~z, 0~9, ()!-_@#;[]+= `Space`
-- Rule 2 : at least one of the following characters must be present in the name : a~z or ;[]+=`Space`
+- Rule 1 : use only the following characters : A►Z, a►z, 0►9, ()!-_@#;[]+= `Space`
+- Rule 2 : at least one of the following characters must be present in the name : a►z or ;[]+=`Space`
 - Rule 3 : the name must not contain more than 11 characters
 
 >#### ![ConvertLogo](Medias/Logo-Info.png) Notes :
@@ -91,8 +92,8 @@ To comply with ETHOS naming rules (Ethos version 1.0.14) :
 
 <a name="EFindSD"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) How does the program find the Ethos SD card ?
-The utility searches all removable drives.
-It then looks for the following tree structure:
+The utility searches all removable drives.  
+It then looks for the following tree structure:  
 - `\audio\en` (as directory)
 - `\audio\fr` (directory)
 - `\bitmaps\user` (directory)
@@ -100,20 +101,20 @@ It then looks for the following tree structure:
 The search stops on the first removable drive matching these criteria.
 
 >#### ![ConvertLogo](Medias/Logo-Info.png) Note :
->If the Ethos SD card is not found, then the button only displays "**Convert**".
->If the Ethos SD card has been found and the transfer option is checked, then the button displays only "**Convert and transfer**".
->You can search for the SD card again by double-clicking on the information area of the utility.
+>If the Ethos SD card is not found, then the button only displays "**Convert**".  
+>If the Ethos SD card has been found and the transfer option is checked, then the button displays only "**Convert and transfer**".  
+>You can search for the SD card again by double-clicking on the information area of the utility.  
 
 <a name="EPref"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) How does this utility manage its preferences ?
-The utility preferences are saved in an INI file with the same name and location as the utility. 
-If the preferences are default, the utility does not generate an INI file and deletes the INI file if it exists.
+The utility preferences are saved in an INI file with the same name and location as the utility.   
+If the preferences are default, the utility does not generate an INI file and deletes the INI file if it exists.  
 
 <a name="EDevelop"></a>
 ### ![Puce>](Medias/Logo-PuceTriJN.png) What tools was this program developed with ?
-The ![ConvertLogo](Medias/Logo_for_converter_16x15.png) **Convert_to_ETHOS_Bmp.exe** utility was developed with the **[AutoIt v3](https://www.autoitscript.com/site/)** scripting language.
-The icon of the utility was made with **[Inkscape](https://inkscape.org/)** and **[IcoFx 1.6.4](https://portableapps.com/apps/graphics_pictures/icofx_portable)**.
-The media was made with **[Gimp](https://www.gimp.org/)**.
-
+The ![ConvertLogo](Medias/Logo_for_converter_16x15.png) **Convert_to_ETHOS_Bmp.exe** utility was developed with the **[AutoIt v3](https://www.autoitscript.com/site/)** scripting language.  
+The icon of the utility was made with **[Inkscape](https://inkscape.org/)** and **[IcoFx 1.6.4](https://portableapps.com/apps/graphics_pictures/icofx_portable)**.  
+The media was made with **[Gimp](https://www.gimp.org/)**.  
+  
 ---------------------------------------------
 *Author : Ceeb182@laposte.net / 2021 / Source : github/ceeb182/ConvertToETHOSBMPformat/README.MD*

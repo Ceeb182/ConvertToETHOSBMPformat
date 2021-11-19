@@ -1,4 +1,4 @@
-#![UtilityLogo](Medias/Banner-ConvertToBMPv2.png "A simple utility to convert and use your images on the FrSky ETHOS OS in 2 clicks")
+![UtilityLogo](Medias/Banner-ConvertToBMPv2.png "A simple utility to convert and use your images on the FrSky ETHOS OS in 2 clicks")
 
 # Convert_to_ETHOS_Bmp.exe
 

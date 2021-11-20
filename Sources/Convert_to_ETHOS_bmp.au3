@@ -29,7 +29,7 @@
 #include <StringConstants.au3>
 
 
-
+Dim Const $sVersion="v1.1"
 ; MAIN GUI (Design)
 Dim $iGui, $iGUIWidth = 500, $iGUIHeight = 200, $aParentWin_Pos
 Dim $SpaceLb1ChB1=20, $SpaceBtwChB=25
@@ -84,7 +84,7 @@ Func _Main()
 	$bConvertInProgress=False
 	
 	; >> Test if "ImageMagick" program exist on the computer
-	; >> ImageMagick is the format convertir for picture files
+	; >> ImageMagick is the program that converts images
 	$iPID = Run(@ComSpec & " /C magick -version >nul 2>&1 && (echo true) || (echo false)","",@SW_HIDE, $STDOUT_CHILD)
 	ProcessWaitClose($iPID)
 	$sOutput = StringTrimRight(StringStripCR(StdoutRead($iPID)), StringLen(@CRLF) -1 )
@@ -123,7 +123,6 @@ Func _Main()
 			Case $iGui ; If it's Main GUI
 				Switch $iMsg[0]
 					Case $GUI_EVENT_CLOSE, $idCancel_Btn ; Close button OR CANCEL button
-						;GUISwitch($iGui)
 						SavePreferences()
 						GUIDelete($idGuiPref)
 						GUIDelete($iGui)
@@ -170,9 +169,12 @@ Func _Main()
 					Case $GUI_EVENT_CLOSE, $idGuiPrefOk ; Close button OR Ok button
 						GUISetState(@SW_HIDE,$idGuiPref)
 						GUISetState(@SW_ENABLE,$iGui)
+						WinActivate($iGui)
 						GUICtrlSetState($idPreferences_Btn, $GUI_ENABLE)
 						GUICtrlSetState($idCancel_Btn, $GUI_ENABLE)
 						GUICtrlSetState($idConvert_Btn, $GUI_ENABLE)
+					Case $idGuiPrefIcon ; Logo of the script
+						ShellExecute("https://github.com/Ceeb182/ConvertToETHOSBMPformat")
 					Case $idGuiPrefUppercase ; CheckBox 'Avoid uppercase only'
 						(GUICtrlRead($idGuiPrefUppercase)=$GUI_CHECKED) ? (SetBool($bAvoidUppercase)) : (UnsetBool($bAvoidUppercase))
 					Case $idGuiPrefCountChar ; CheckBox 'Limit the name to X characters'
@@ -217,7 +219,7 @@ Func TransferToSDCard()
 	$iOuputFileNumber=UBound($aFilenameAfterConvert)
 	; Update GUI
 	GUICtrlSetTip($idProgressBar, "Tranfer to ETHOS SD Card") ; Update ProgressBarTip
-	GUICtrlSetData($idLabel1,"")
+	GUICtrlSetData($idLabel1,"")     ; Update label under ProgressBar
 	GUICtrlSetData($idProgressBar, 0); Update ProgressBar
 	For $i=0 To $iOuputFileNumber-1 Step 1
 		GUICtrlSetTip($idProgressBar, "Tranfer to ETHOS SD Card " & $i & "/" & $iFileImageNumber) ; Update ProgressBarTip
@@ -382,7 +384,7 @@ Func ConvertToEthosBMPFormat()
 		WEnd
 		FileClose($s)
 	EndIf
-	Sleep(500)
+	Sleep(300)
 	;MsgBox ($MB_SYSTEMMODAL,"Debug","Stop !")
 EndFunc
 
@@ -562,9 +564,6 @@ Func SetPreferenceOnGUI()
 		GUICtrlSetState($idConvert_Btn, $GUI_DISABLE)
 	EndIf
 	; on preference Gui
-	;$Value = GUICtrlSetState($idGuiPrefUppercase, $GUI_CHECKED)
-	;MsgBox($MB_SYSTEMMODAL, "Debug", "Func SetPreferenceOnGUI()" & @CRLF & "$bAvoidUppercase=" & $bAvoidUppercase & @CRLF & _
-	;					"GUICtrlSetState($idGuiPrefUppercase, $GUI_CHECKED)=" & $Value)
 	($bAvoidUppercase=True) ? (GUICtrlSetState($idGuiPrefUppercase, $GUI_CHECKED)) : (GUICtrlSetState($idGuiPrefUppercase, $GUI_UNCHECKED))
 	($bLimitLength=True) ? (GUICtrlSetState($idGuiPrefCountChar, $GUI_CHECKED)) : (GUICtrlSetState($idGuiPrefCountChar, $GUI_UNCHECKED))
 	GUICtrlSetData($idGuiPrefCharNumber,$iLimitLength)
@@ -588,7 +587,7 @@ Func LoadPreferences()
 	If FileExists($sIniFile) Then
 		$hFileOpen = FileOpen($sIniFile, $FO_READ+$FO_UTF8)
 		If $hFileOpen = -1 Then
-			;MsgBox($MB_SYSTEMMODAL, "Debug", "An error occurred whilst writing the temporary file.")
+			;MsgBox($MB_SYSTEMMODAL, "Debug", "An error occurred while loading preferences from INI file.")
 			$bSuccess = False
 		Else
 			FileClose($hFileOpen) ; Close properly the INI file
@@ -641,7 +640,7 @@ Func SavePreferences()
 	If $bCreateINI = True Then ; Need to create INI file because it's not Default preferences
 		$hFileOpen = FileOpen($sIniFile, $FO_APPEND+$FO_UTF8)
 		If $hFileOpen = -1 Then
-			MsgBox($MB_SYSTEMMODAL, "", "An error occurred whilst writing the temporary file.")
+			MsgBox($MB_SYSTEMMODAL, "", "An error occurred while writing preferences on INI file.")
 			$bSuccess = False
 		Else
 			FileClose($hFileOpen) ; An empty INI file is created
@@ -733,7 +732,7 @@ Func GuiPreference()
 	$idGuiPrefIcon=GUICtrlCreateButton("", $iGuiPrefWidth/2-25, 3, 38, 38, $BS_ICON)
     GUICtrlSetImage(-1, @ScriptName, 0, 1)
 	; Version information
-	$idGuiPrefLabelInfo=GUICtrlCreateLabel("GNU GPL2 - v1.0  •  by Ceeb182  •  https://github.com/Ceeb182", $Label1Margin, $Label1Margin+$iIcon,$iGuiPrefWidth-2*$Label1Margin,20,$SS_CENTER)
+	$idGuiPrefLabelInfo=GUICtrlCreateLabel("GNU GPL2 - " & $sVersion & "  •  by Ceeb182  •  https://github.com/Ceeb182", $Label1Margin, $Label1Margin+$iIcon,$iGuiPrefWidth-2*$Label1Margin,20,$SS_CENTER)
 	; Group AUTO-RENAME
 	$idGuiPrefGroupRename = GUICtrlCreateGroup("Auto rename", $Label1Margin, $Label1Margin+$iIcon+20,$iGuiPrefWidth-2*$Label1Margin ,100)
 	$iGuiPregYPos=$Label1Margin+$iIcon+20+100+5

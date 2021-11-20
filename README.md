@@ -16,8 +16,8 @@ then this utility is for you !
 - **[Quick start guide](#EQuickStart)**
 - [Supported image file formats](#EFileFormats)
 
->**You wish to support this initiative by making a donation,  
->you can do so by clicking on the following link :** [![<Donate Ceeb182>](Medias/Logo-DonateCeeb182.png "Support via Paypal")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3H34W6LC74WAS)
+>You wish to support this initiative by making a donation,  
+>you can do so by clicking on the following link : [![<Donate Ceeb182>](Medias/Logo-DonateCeeb182.png "Support via Paypal")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3H34W6LC74WAS)
 
 --------------------------------------------------
 
@@ -108,7 +108,7 @@ It then looks for the following tree structure:
 
 The search stops on the first removable drive matching these criteria.
 
->#### ![ConvertLogo](Medias/Logo-Info.png) Note :
+>#### ![ConvertLogo](Medias/Logo-Info.png) Notes :
 >If the Ethos SD card is not found, then the button only displays "**Convert**".  
 >If the Ethos SD card has been found and the transfer option is checked, then the button displays only "**Convert and transfer**".  
 >You can search for the SD card again by double-clicking on the information area of the utility.  
